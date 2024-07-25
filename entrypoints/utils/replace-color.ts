@@ -2,8 +2,8 @@ import { convertToRGBA } from "./convert-to-rgba";
 import { getColorsFromAttribute } from "./get-color-from-bg";
 import { lightenColor } from "./lighten-color";
 
-export function replaceColor(elements: NodeListOf<HTMLElement>) {
-  // 遍历所有元素并修改颜色和背景色
+function replaceCommonColor(elements: NodeListOf<HTMLElement>) {
+  // 遍历所有元素，识别并修改属性中的颜色字段
   elements.forEach((element) => {
     // 获取元素的原始颜色和背景色
     const originalColor = window.getComputedStyle(element).color;
@@ -47,4 +47,22 @@ export function replaceColor(elements: NodeListOf<HTMLElement>) {
       });
     }
   });
+}
+
+function replaceImgColor(elements: NodeListOf<HTMLElement>) {
+  // 遍历所有图片元素，识别并修改属性中的颜色字段
+  elements.forEach((element) => {
+    if (element.nodeName === "IMG") {
+      //TODO: 处理图片重写src
+    }
+    // FIXME: SVG 可能会有坑
+    if (element.nodeName === "svg") {
+      //TODO: 处理svg，替换为png
+    }
+  });
+}
+
+export function replaceColor(elements: NodeListOf<HTMLElement>) {
+  replaceCommonColor(elements);
+  replaceImgColor(elements);
 }
