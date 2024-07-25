@@ -6,6 +6,7 @@ export default defineContentScript({
   matches: ["https://*/*"],
   main() {
     setTimeout(() => {
+      // TODO: Vector 页面DOM结构变化监听
       // 获取所有 DOM 元素
       const elements = document.querySelectorAll("*");
 
@@ -49,7 +50,7 @@ export default defineContentScript({
           //   );
         }
       });
-    }, 0);
+    }, 5000);
 
     console.log("Hello content script!");
   },

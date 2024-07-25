@@ -6,6 +6,8 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(1);
 
+  // TODO: 开关控制
+  // TODO: 主题选择 黑白/变淡
   return (
     <>
       <div>
