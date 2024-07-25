@@ -1,7 +1,7 @@
 import { IRGBColor } from "../type";
 
 // 定义颜色变浅的函数
-export function removeColor(color: IRGBColor) {
+export function lightenColor(color: IRGBColor) {
   // 将颜色值转换为 RGB 值
   let [colorR, colorG, colorB, colorA] = color;
   const average = Math.round((colorR + colorG + colorB) / 3);
